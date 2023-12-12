@@ -1,0 +1,97 @@
+{
+  "entries": [
+    {
+      "id": 1,
+      "type": "income",
+      "amount": 5000,
+      "createdAt": "10-20-2023",
+      "updatedAt": "10-20-2023",
+      "categoryId": 1,
+      "repeatId": 1,
+      "notes": "A note"
+    },
+    {
+      "id": 2,
+      "type": "expense",
+      "amount": 80,
+      "createdAt": "10-20-2023",
+      "updatedAt": "10-20-2023",
+      "categoryId": 2,
+      "repeatId": 2,
+      "notes": "Another note"
+    }
+  ],
+  "repetitions": [
+    {
+      "id": 1,
+      "entryId": 1,
+      "repeatId": 1,
+      "createdAt": "10-20-2023",
+      "updatedAt": "10-20-2023"
+    },
+    {
+      "id": 2,
+      "entryId": 2,
+      "repeatId": 2,
+      "createdAt": "10-20-2023",
+      "updatedAt": "10-20-2023"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "salary",
+      "createdAt": "10-20-2023",
+      "updatedAt": "10-20-2023",
+      "editable": false
+    },
+    {
+      "id": 2,
+      "name": "apparel",
+      "createdAt": "10-20-2023",
+      "updatedAt": "10-20-2023",
+      "editable": false
+    },
+    {
+      "id": 3,
+      "name": "food",
+      "createdAt": "10-20-2023",
+      "updatedAt": "10-20-2023",
+      "editable": false
+    }
+  ],
+  "repeats": [
+    {
+      "id": 1,
+      "days": 1
+    },
+    {
+      "id": 2,
+      "days": 7
+    },
+    {
+      "id": 3,
+      "days": 14
+    },
+    {
+      "id": 3,
+      "days": 21
+    },
+    {
+      "id": 4,
+      "days": 28
+    }
+  ],
+  "accounts": [
+    {
+      "id": 1,
+      "name": "cash",
+      "editable": false
+    },
+    {
+      "id": 2,
+      "name": "bank",
+      "editable": false
+    }
+  ]
+}
