@@ -4,6 +4,12 @@ Content-Type: application/json
 
 ###
 
+# Get all entries with all parent resources
+GET http://localhost:3001/entries?_expand=account&_expand=category HTTP/1.1
+Content-Type: application/json
+
+###
+
 # Get entry id of 1
 GET http://localhost:3001/entries/1 HTTP/1.1
 Content-Type: application/json
@@ -60,6 +66,12 @@ Content-Type: application/json
 
 # Get all categories
 GET http://localhost:3001/categories HTTP/1.1
+Content-Type: application/json
+
+###
+
+# Get all catgories with entries
+GET http://localhost:3001/categories?_embed=entries HTTP/1.1
 Content-Type: application/json
 
 ###
