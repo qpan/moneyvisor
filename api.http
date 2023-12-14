@@ -10,6 +10,12 @@ Content-Type: application/json
 
 ###
 
+# Get entries aggregations
+GET http://localhost:3001/entries/aggregations HTTP/1.1
+Content-Type: application/json
+
+###
+
 # Get entry id of 1
 GET http://localhost:3001/entries/1 HTTP/1.1
 Content-Type: application/json

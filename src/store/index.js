@@ -17,4 +17,9 @@ window.store = store;
 
 setupListeners(store.dispatch);
 
-export { useFetchEntriesQuery, useAddEntryMutation, useRemoveEntryMutation } from './apis/entriesApi';
+export {
+  useFetchEntriesQuery,
+  useAddEntryMutation,
+  useRemoveEntryMutation,
+  useFetchEntriesAggregationsQuery,
+} from './apis/entriesApi';

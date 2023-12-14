@@ -45,10 +45,23 @@ const entriesApi = createApi({
             method: 'GET',
           };
         }
+      }),
+      fetchEntriesAggregations: builder.query({
+        query: () => {
+          return {
+            url: '/entries/aggregations',
+            method: 'GET',
+          };
+        }
       })
     };
   }
 });
 
-export const { useFetchEntriesQuery, useAddEntryMutation, useRemoveEntryMutation } = entriesApi;
+export const {
+  useFetchEntriesQuery,
+  useAddEntryMutation,
+  useRemoveEntryMutation,
+  useFetchEntriesAggregationsQuery,
+} = entriesApi;
 export { entriesApi };

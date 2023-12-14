@@ -18,7 +18,8 @@ import {
   Grid,
   Box,
   BottomNavigation,
-  BottomNavigationAction
+  BottomNavigationAction,
+  Divider
 } from '@mui/material';
 import { MenuBook, Insights, Work } from '@mui/icons-material';
 
@@ -46,6 +47,7 @@ function App() {
           </BottomNavigation>
         </Box>
       </Grid>
+      <Divider light />
       <Routes>
         <Route path={routeMaps.home} element={ <Home/> } />
         <Route path={routeMaps.stats} element={ <Stats/>} />

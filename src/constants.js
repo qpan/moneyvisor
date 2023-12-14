@@ -1,4 +1,7 @@
-export const entry = {
-  income: 'income',
-  expense: 'expense',
-}
+module.exports = {
+  ENTRY: {
+    INCOME: 'income',
+    EXPENSE: 'expense',
+    TOTAL: 'total',
+  },
+};
