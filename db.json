@@ -1,37 +1,62 @@
 {
-  "entries": [
+  "types": [
     {
       "id": 1,
-      "type": "income",
-      "amount": 5000,
-      "createdAt": "10-20-2023",
-      "updatedAt": "10-20-2023",
-      "categoryId": 1,
-      "accountId": 1,
-      "repeatId": 1,
-      "notes": "A note"
+      "name": "income"
     },
     {
       "id": 2,
-      "type": "expense",
+      "name": "expense"
+    }
+  ],
+  "entries": [
+    {
+      "id": 1,
+      "amount": 5000,
+      "createdAt": "10-20-2023",
+      "typeId": 1,
+      "categoryId": 1,
+      "accountId": 1,
+      "repeatId": 1,
+      "note": "A note"
+    },
+    {
+      "id": 2,
       "amount": 80,
       "createdAt": "10-20-2023",
-      "updatedAt": "10-20-2023",
+      "typeId": 2,
       "categoryId": 2,
       "accountId": 2,
       "repeatId": 2,
-      "notes": "Another note"
+      "note": "Another note"
     },
     {
       "id": 3,
-      "type": "expense",
       "amount": 20,
       "createdAt": "10-20-2023",
-      "updatedAt": "10-20-2023",
+      "typeId": 2,
       "categoryId": 3,
       "accountId": 1,
       "repeatId": 2,
-      "notes": "food note"
+      "note": "food note"
+    },
+    {
+      "typeId": 2,
+      "amount": 123.321,
+      "createdAt": "2023-12-30T16:06:09.000Z",
+      "categoryId": 2,
+      "accountId": 1,
+      "note": "test note",
+      "id": 4
+    },
+    {
+      "typeId": 2,
+      "amount": 1212,
+      "createdAt": "2023-12-16T16:17:44.000Z",
+      "categoryId": 3,
+      "accountId": 2,
+      "note": "1212",
+      "id": 5
     }
   ],
   "repetitions": [
@@ -39,40 +64,38 @@
       "id": 1,
       "entryId": 1,
       "repeatId": 1,
-      "createdAt": "10-20-2023",
-      "updatedAt": "10-20-2023"
+      "createdAt": "10-20-2023"
     },
     {
       "id": 2,
       "entryId": 2,
       "repeatId": 2,
-      "createdAt": "10-20-2023",
-      "updatedAt": "10-20-2023"
+      "createdAt": "10-20-2023"
     }
   ],
   "categories": [
     {
       "id": 1,
+      "typeId": 1,
       "name": "salary",
       "emoji": "1F4B0",
       "createdAt": "10-20-2023",
-      "updatedAt": "10-20-2023",
       "editable": false
     },
     {
       "id": 2,
+      "typeId": 2,
       "name": "apparel",
       "emoji": "1F455",
       "createdAt": "10-20-2023",
-      "updatedAt": "10-20-2023",
       "editable": false
     },
     {
       "id": 3,
+      "typeId": 2,
       "name": "food",
       "emoji": "1F372",
       "createdAt": "10-20-2023",
-      "updatedAt": "10-20-2023",
       "editable": false
     }
   ],

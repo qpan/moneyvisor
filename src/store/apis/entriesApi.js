@@ -1,10 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import pause from '../utils';
+import { JSON_SERVER_URL } from '../../constants';
 
 const entriesApi = createApi({
   reducerPath: 'entries',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:3001',
+    baseUrl: JSON_SERVER_URL,
     fetchFn: async (...args) => {
       // DEV ONLY!!!
       await pause(1000);
@@ -25,23 +26,20 @@ const entriesApi = createApi({
         }
       }),
       addEntry: builder.mutation({
-        invalidatesTags: (result, error, user) => {
-          return [{ type: 'UsersEntries', id: user.id }];
-        },
-        query: (user) => {
+        invalidatesTags: ['Entry'],
+        query: (entry) => {
           return {
             url: '/entries',
             method: 'POST',
-            body: {
-              userId: user.id
-            }
+            body: { ...entry }
           };
         }
       }),
       fetchEntries: builder.query({
+        providesTags: ['Entry'],
         query: () => {
           return {
-            url: '/entries?_expand=account&_expand=category',
+            url: '/entries?_expand=type&_expand=account&_expand=category',
             method: 'GET',
           };
         }

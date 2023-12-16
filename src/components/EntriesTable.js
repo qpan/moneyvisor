@@ -36,12 +36,12 @@ function EntriesTable() {
   } else {
     content = (
       <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} size="small" aria-label="simple dense table">
+        <Table sx={{ minWidth: 360 }} size="small" aria-label="simple dense table">
           <TableBody>
             {data.map((row) => {
               const entryTypeClasses = className(
-                { 'success.main': ENTRY.INCOME === row.type },
-                { 'error.main': ENTRY.EXPENSE === row.type }
+                { 'success.main': ENTRY.INCOME === row.type.name },
+                { 'error.main': ENTRY.EXPENSE === row.type.name }
               );
 
               return (
@@ -58,12 +58,15 @@ function EntriesTable() {
                     {row.name}
                   </TableCell>
                   <TableCell align="left">
-                    {<Emoji unicode={row.category.emoji} />}&nbsp;&nbsp;
+                    {row.category.emoji && <Emoji unicode={row.category.emoji} />}&nbsp;&nbsp;
                     <span>{startCase(toLower(row.category.name))}</span>
                   </TableCell>
                   <TableCell align="left">
-                    <div>{row.notes}</div>
-                    <div>{startCase(toLower(row.account.name))}</div>
+                    <div>{row.note}</div>
+                    <div>
+                      {row.account.emoji && <Emoji unicode={row.account.emoji} />}&nbsp;&nbsp;
+                      {startCase(toLower(row.account.name))}
+                      </div>
                   </TableCell>
                   <TableCell align="right">
                     <Box sx={{ color: entryTypeClasses }}>

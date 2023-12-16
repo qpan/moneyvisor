@@ -37,7 +37,7 @@ function EntriesAggregationsTable() {
     content = (
       <>
         <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <Table sx={{ minWidth: 360 }} aria-label="simple table">
             <TableBody>
               <TableRow
                 hover
