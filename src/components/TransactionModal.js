@@ -27,10 +27,12 @@ import dayjs from 'dayjs';
 import {
   useFetchAccountsQuery,
   useFetchCategoriesQuery,
-  useFetchTypesQuery
+  useFetchTypesQuery,
+  useRemoveEntryMutation
 } from '../store';
 import Emoji from './Emoji';
 import { REST } from '../constants';
+import ConfirmDeleteView from './ConfirmDeleteView';
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -46,6 +48,7 @@ function TransactionModal({
   const { data: typeData } = useFetchTypesQuery();
   const { data: categoryData } = useFetchCategoriesQuery();
   const { data: accountData } = useFetchAccountsQuery();
+  const [deleteEntry, deleteEntryResult] = useRemoveEntryMutation();
 
   const {
     reset,
@@ -76,14 +79,22 @@ function TransactionModal({
     reset();
   };
 
+  const handleDelete = (event) => {
+    event.preventDefault();
+    console.log(event);
+    deleteEntry(entry);
+    handleClose();
+    reset();
+  }
+
   return (
     <Dialog
       fullScreen
       open={open}
       onClose={() => {
-        reset();
         clearErrors();
         handleClose();
+        reset();
       }}
       TransitionComponent={Transition}
     >
@@ -234,6 +245,7 @@ function TransactionModal({
           }}
         />
         <Button
+          sx={{ marginBottom: 2 }}
           color="primary"
           variant="contained"
           fullWidth
@@ -242,6 +254,10 @@ function TransactionModal({
         >
           {capitalize(REST[mode])}
         </Button>
+        { mode === 'UPDATE' && <ConfirmDeleteView
+          onDelete={handleDelete}
+          result={deleteEntryResult}
+        />}
       </Box>
     </DialogContent>
     </Dialog>

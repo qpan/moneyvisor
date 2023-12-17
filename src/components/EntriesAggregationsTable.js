@@ -41,10 +41,8 @@ function EntriesAggregationsTable() {
             <TableBody>
               <TableRow
                 hover
-                onClick={() => console.log(data)}
                 sx={{
                   '&:last-child td, &:last-child th': { border: 0 },
-                  '&:hover': { cursor: 'pointer' }
                 }}
               >
                 <TableCell align="center" component="th" scope="row">

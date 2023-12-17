@@ -15,9 +15,7 @@ const entriesApi = createApi({
   endpoints(builder) {
     return {
       removeEntry: builder.mutation({
-        invalidatesTags: (result, error, entry) => {
-          return [{ type: 'Entry', id: entry.id }];
-        },
+        invalidatesTags: ['Entry'],
         query: (entry) => {
           return {
             url: `/entries/${entry.id}`,
