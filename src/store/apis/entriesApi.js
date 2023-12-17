@@ -35,6 +35,16 @@ const entriesApi = createApi({
           };
         }
       }),
+      updateEntry: builder.mutation({
+        invalidatesTags: ['Entry'],
+        query: (entry) => {
+          return {
+            url: `/entries/${entry.id}`,
+            method: 'PUT',
+            body: { ...entry }
+          };
+        }
+      }),
       fetchEntries: builder.query({
         providesTags: ['Entry'],
         query: () => {
@@ -45,6 +55,7 @@ const entriesApi = createApi({
         }
       }),
       fetchEntriesAggregations: builder.query({
+        providesTags: ['Entry'],
         query: () => {
           return {
             url: '/entries/aggregations',
@@ -59,6 +70,7 @@ const entriesApi = createApi({
 export const {
   useFetchEntriesQuery,
   useAddEntryMutation,
+  useUpdateEntryMutation,
   useRemoveEntryMutation,
   useFetchEntriesAggregationsQuery,
 } = entriesApi;

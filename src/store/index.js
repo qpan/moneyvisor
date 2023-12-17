@@ -33,6 +33,7 @@ export {
 export {
   useFetchEntriesQuery,
   useAddEntryMutation,
+  useUpdateEntryMutation,
   useRemoveEntryMutation,
   useFetchEntriesAggregationsQuery,
 } from './apis/entriesApi';

@@ -13,7 +13,7 @@
     {
       "id": 1,
       "amount": 5000,
-      "createdAt": "10-20-2023",
+      "createdAt": "2023-12-30T16:06:09.000Z",
       "typeId": 1,
       "categoryId": 1,
       "accountId": 1,
@@ -23,7 +23,7 @@
     {
       "id": 2,
       "amount": 80,
-      "createdAt": "10-20-2023",
+      "createdAt": "2023-12-30T16:06:09.000Z",
       "typeId": 2,
       "categoryId": 2,
       "accountId": 2,
@@ -33,7 +33,7 @@
     {
       "id": 3,
       "amount": 20,
-      "createdAt": "10-20-2023",
+      "createdAt": "2023-12-30T16:06:09.000Z",
       "typeId": 2,
       "categoryId": 3,
       "accountId": 1,
@@ -64,13 +64,13 @@
       "id": 1,
       "entryId": 1,
       "repeatId": 1,
-      "createdAt": "10-20-2023"
+      "createdAt": "2023-12-30T16:06:09.000Z"
     },
     {
       "id": 2,
       "entryId": 2,
       "repeatId": 2,
-      "createdAt": "10-20-2023"
+      "createdAt": "2023-12-30T16:06:09.000Z"
     }
   ],
   "categories": [
@@ -79,7 +79,7 @@
       "typeId": 1,
       "name": "salary",
       "emoji": "1F4B0",
-      "createdAt": "10-20-2023",
+      "createdAt": "2023-12-30T16:06:09.000Z",
       "editable": false
     },
     {
@@ -87,7 +87,7 @@
       "typeId": 2,
       "name": "apparel",
       "emoji": "1F455",
-      "createdAt": "10-20-2023",
+      "createdAt": "2023-12-30T16:06:09.000Z",
       "editable": false
     },
     {
@@ -95,7 +95,7 @@
       "typeId": 2,
       "name": "food",
       "emoji": "1F372",
-      "createdAt": "10-20-2023",
+      "createdAt": "2023-12-30T16:06:09.000Z",
       "editable": false
     }
   ],

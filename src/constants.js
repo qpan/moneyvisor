@@ -6,7 +6,7 @@ module.exports = {
   },
   REST: {
     CREATE: 'add',
-    UPDATE: 'update',
+    UPDATE: 'save',
     DELETE: 'remove',
   },
   JSON_SERVER_URL: 'http://localhost:3001',
