@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import pause from '../utils';
 import { JSON_SERVER_URL } from '../../constants';
+import dayjs from 'dayjs';
 
 const entriesApi = createApi({
   reducerPath: 'entries',
@@ -47,7 +48,29 @@ const entriesApi = createApi({
         providesTags: ['Entry'],
         query: () => {
           return {
-            url: '/entries?_expand=type&_expand=account&_expand=category',
+            url: '/entries?_expand=type&_expand=account&_expand=category&_sort=createdAt&_order=asc',
+            method: 'GET',
+          };
+        }
+      }),
+      fetchEntriesByYearMonth: builder.query({
+        providesTags: ['Entry'],
+        query: (year = dayjs().year(), month = dayjs().month()) => {
+          const firstDay = dayjs()
+            .year(year)
+            .month(month)
+            .startOf('month')
+            .format();
+          const lastDay = dayjs()
+            .year(year)
+            .month(month)
+            .endOf('month')
+            .format();
+          console.log('firstDay :', firstDay);
+          console.log('lastDay :', lastDay);
+
+          return {
+            url: `/entries?_expand=type&_expand=account&_expand=category&createdAt_gte=${firstDay}&createdAt_lte=${lastDay}&_sort=createdAt&_order=asc`,
             method: 'GET',
           };
         }
@@ -67,6 +90,7 @@ const entriesApi = createApi({
 
 export const {
   useFetchEntriesQuery,
+  useFetchEntriesByYearMonthQuery,
   useAddEntryMutation,
   useUpdateEntryMutation,
   useRemoveEntryMutation,

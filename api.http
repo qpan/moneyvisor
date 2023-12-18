@@ -11,8 +11,26 @@ Content-Type: @contentType
 
 ###
 
+# Get all entries between day x and day y
+GET {{jsonServerUrl}}/entries/?createdAt_gte=2023-12-05T16:17:44.000Z&createdAt_lte=2023-12-29T16:17:44.000Z HTTP/1.1
+Content-Type: @contentType
+
+###
+
 # Get all entries with all parent resources
 GET {{jsonServerUrl}}/entries?_expand=type&_expand=account&_expand=category HTTP/1.1
+Content-Type: @contentType
+
+###
+
+# Get all entries between day x and day y AND with all parent resources
+GET {{jsonServerUrl}}/entries?_expand=type&_expand=account&_expand=category&createdAt_gte=2023-12-05T16:17:44.000Z&createdAt_lte=2023-12-29T16:17:44.000Z HTTP/1.1
+Content-Type: @contentType
+
+###
+
+# Get all entries between day x and day y AND with all parent resources AND sort-by createdAt in ASC order
+GET {{jsonServerUrl}}/entries?_expand=type&_expand=account&_expand=category&createdAt_gte=2023-12-05T16:17:44.000Z&createdAt_lte=2023-12-29T16:17:44.000Z&_sort=createdAt&_order=asc HTTP/1.1
 Content-Type: @contentType
 
 ###

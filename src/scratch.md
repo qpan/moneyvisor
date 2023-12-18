@@ -202,3 +202,10 @@
   }}
 />
 ```
+
+## dayjs + start of a month and end of a month of a year
+
+```js
+dayjs().year(2020).month(1).startOf('month');
+dayjs().year(2020).month(1).endOf('month');
+```

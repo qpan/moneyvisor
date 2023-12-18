@@ -67,7 +67,6 @@ function EntriesAggregationsTable() {
             </TableBody>
           </Table>
         </TableContainer>
-        <Divider light />
       </>
     );
   }

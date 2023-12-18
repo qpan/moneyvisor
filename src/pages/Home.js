@@ -8,7 +8,6 @@ function Home() {
     <Grid align="center">
       <EntriesAggregationsTable />
       <EntriesTable />
-      <br />
       <AddTransactionButton />
     </Grid>
   );

@@ -39,21 +39,18 @@ function EntriesTableRow({ row }) {
         '&:hover': { cursor: 'pointer' }
       }}
     >
-      <TableCell component="th" scope="row">
-        {row.name}
-      </TableCell>
-      <TableCell align="left">
+      <TableCell width={"33.33%"} align="left">
         {row.category.emoji && <Emoji unicode={row.category.emoji} />}&nbsp;&nbsp;
         <span>{startCase(toLower(row.category.name))}</span>
       </TableCell>
-      <TableCell align="left">
+      <TableCell width={"33.33%"} align="left">
         <div>{row.note}</div>
         <div>
           {row.account.emoji && <Emoji unicode={row.account.emoji} />}&nbsp;&nbsp;
           {startCase(toLower(row.account.name))}
           </div>
       </TableCell>
-      <TableCell align="right">
+      <TableCell width={"33.33%"} align="right">
         <Box sx={{ color: entryTypeClasses }}>
           {currency(row.amount, { separator: ',', symbol: '$'}).format()}
           <EditTransaction entry={row} open={open} handleClose={handleClose} />

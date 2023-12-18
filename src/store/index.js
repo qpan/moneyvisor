@@ -32,6 +32,7 @@ export {
 
 export {
   useFetchEntriesQuery,
+  useFetchEntriesByYearMonthQuery,
   useAddEntryMutation,
   useUpdateEntryMutation,
   useRemoveEntryMutation,
