@@ -66,8 +66,6 @@ const entriesApi = createApi({
             .month(month)
             .endOf('month')
             .format();
-          console.log('firstDay :', firstDay);
-          console.log('lastDay :', lastDay);
 
           return {
             url: `/entries?_expand=type&_expand=account&_expand=category&createdAt_gte=${firstDay}&createdAt_lte=${lastDay}&_sort=createdAt&_order=asc`,

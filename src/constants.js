@@ -2,7 +2,7 @@ module.exports = {
   ENTRY: {
     INCOME: 'income',
     EXPENSE: 'expense',
-    TOTAL: 'total',
+    TOTAL: 'balance',
   },
   REST: {
     CREATE: 'add',

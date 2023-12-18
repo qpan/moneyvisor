@@ -14,7 +14,6 @@ import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
 
 import { useFetchEntriesAggregationsQuery } from '../store';
-import { Divider } from '@mui/material';
 const { ENTRY } = require('../constants');
 
 
@@ -45,19 +44,19 @@ function EntriesAggregationsTable() {
                   '&:last-child td, &:last-child th': { border: 0 },
                 }}
               >
-                <TableCell align="center" component="th" scope="row">
+                <TableCell sx={{ padding: '6px' }} align="center" component="th" scope="row">
                   <div>{capitalize(ENTRY.INCOME)}</div>
                   <Box sx={{ color: 'success.main' }}>
                     {currency(data.income, { separator: ',', symbol: '$'}).format()}
                   </Box>
                 </TableCell>
-                <TableCell align="center">
+                <TableCell sx={{ padding: '6px' }} align="center">
                   <div>{capitalize(ENTRY.EXPENSE)}</div>
                   <Box sx={{ color: 'error.main' }}>
                     {currency(data.expense, { separator: ',', symbol: '$'}).format()}
                   </Box>
                 </TableCell>
-                <TableCell align="center">
+                <TableCell sx={{ padding: '6px' }} align="center">
                   <div>{capitalize(ENTRY.TOTAL)}</div>
                   <Box sx={{ fontWeight: 'medium' }}>
                     {currency(data.total, { separator: ',', symbol: '$'}).format()}

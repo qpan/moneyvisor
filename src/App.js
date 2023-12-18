@@ -32,7 +32,7 @@ function App() {
   return (
     <div className='App'>
       <Grid align="center">
-        <Box sx={{ width: 500 }}>
+        <Box>
           <BottomNavigation
             showLabels
             value={value}
@@ -48,14 +48,12 @@ function App() {
         </Box>
       </Grid>
       <Divider light />
-      <main>
-        <Routes>
-          <Route path={routeMaps.home} element={ <Home/> } />
-          <Route path={routeMaps.stats} element={ <Stats/>} />
-          <Route path={routeMaps.accounts} element={ <Accounts/> } />
-          <Route path="*" element={ <NoPage/> } />
-        </Routes>
-      </main>
+      <Routes>
+        <Route path={routeMaps.home} element={ <Home/> } />
+        <Route path={routeMaps.stats} element={ <Stats/>} />
+        <Route path={routeMaps.accounts} element={ <Accounts/> } />
+        <Route path="*" element={ <NoPage/> } />
+      </Routes>
     </div>
   );
 }
