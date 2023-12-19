@@ -49,7 +49,7 @@ const viewMode = {
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#fff",
+        backgroundColor: "white",
       }}
     >
       <Button

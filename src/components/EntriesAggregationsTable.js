@@ -44,7 +44,7 @@ function EntriesAggregationsTable() {
             minWidth: 360,
             '.MuiTableRow-root.MuiTableRow-hover': {
               '&:hover': {
-                backgroundColor: '#fff',
+                backgroundColor: 'white',
               }
             }
             }} aria-label="simple table">

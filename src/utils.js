@@ -12,3 +12,13 @@ export const monthsNameArray = [
   'November',
   'December',
 ];
+
+export const daysNameArray = [
+  'Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+]

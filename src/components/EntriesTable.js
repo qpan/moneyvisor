@@ -9,16 +9,45 @@ import Skeleton from '@mui/material/Skeleton';
 import { useFetchEntriesByYearMonth } from "../hooks/use-fetch-entries-by-year-month";
 import EntriesTableRow from './EntiresTableRow';
 import { groupBy, map } from 'lodash';
-import { Divider, Stack, TableCell, TableRow } from '@mui/material';
+import { Chip, Divider, Stack, TableCell, TableRow } from '@mui/material';
 import dayjs from 'dayjs';
+import { ENTRY } from '../constants';
+import currency from 'currency.js';
+import { daysNameArray } from '../utils';
 
 function EntriesTable() {
   const { data, error, isFetching } = useFetchEntriesByYearMonth();
 
-  const dataGroupByCreatedAt = groupBy(data, (entry) => (
+  const dataGroupByCreatedAt = groupBy(data, (entry, a, b, c) => (
     // Grab substring before 'T'
     entry.createdAt.substring(0, entry.createdAt.indexOf("T"))
   ));
+
+  const dataGroupByCreatedAtWithAggregates = map(dataGroupByCreatedAt, (value, key) => {
+    let income = 0;
+    let expense = 0;
+    let total = 0;
+
+    value.forEach(date => {
+      if (date.type.name === ENTRY.INCOME) {
+        income += date.amount;
+      } else {
+        expense += date.amount
+      }
+    });
+
+    total += income - expense;
+
+    return {
+      value,
+      date: key,
+      aggregations: {
+        income,
+        expense,
+        total
+      }
+    }
+  });
 
   let content;
   if (isFetching) {
@@ -42,22 +71,40 @@ function EntriesTable() {
   } else {
     content = (
       <>
-        {map(dataGroupByCreatedAt, (data, key) => {
+        {map(dataGroupByCreatedAtWithAggregates, (data) => {
+          const date = dayjs(data.date);
+
           return (
-            <Box key={key}>
+            <Box key={data.date}>
               <Divider />
               <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 360 }} size="small" aria-label="simple dense table">
                   <TableBody>
                     <TableRow>
-                    <TableCell width={"33.33%"} align="left">
-                      {dayjs(key).format('MM/DD/YYYY')}
+                      <TableCell width={"25%"} align="left">
+                        <Box component="span" fontSize={16} sx={{ fontWeight: 'medium' }}>
+                          <Box component="span" sx={{ position: 'relative', top: '2px' }}>
+                            {date.format('DD')}&nbsp;
+                          </Box>
+                        </Box>
+                        <Chip
+                          label={daysNameArray[date.day()].substring(0, 3)}
+                          size="small"
+                          sx={{
+                            borderRadius: 2,
+                            color: 'white',
+                            backgroundColor: '#999',
+                          }}
+                        />
+                        </TableCell>
+                      <TableCell sx={{ color: 'success.main' }} width={"25%"} align="center">
+                        {currency(data.aggregations.income, { separator: ',', symbol: '$'}).format()}
+                        </TableCell>
+                      <TableCell sx={{ color: 'error.main' }} width={"25%"} align="right">
+                        {currency(data.aggregations.expense, { separator: ',', symbol: '$'}).format()}
                       </TableCell>
-                    <TableCell width={"33.33%"} align="center">
-                      {dayjs(key).format('MM/DD/YYYY')}
-                      </TableCell>
-                    <TableCell width={"33.33%"} align="right">
-                      {dayjs(key).format('MM/DD/YYYY')}
+                      <TableCell width={"25%"} align="right">
+                        {currency(data.aggregations.total, { separator: ',', symbol: '$'}).format()}
                       </TableCell>
                     </TableRow>
                   </TableBody>
@@ -66,7 +113,7 @@ function EntriesTable() {
               <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 360 }} size="small" aria-label="simple dense table">
                   <TableBody>
-                    {data.map((row) => {
+                    {data.value.map((row) => {
                       return (
                         <EntriesTableRow row={row} key={row.id} />
                       );
