@@ -9,7 +9,7 @@ const entriesApi = createApi({
     baseUrl: JSON_SERVER_URL,
     fetchFn: async (...args) => {
       // DEV ONLY!!!
-      await pause(1000);
+      await pause(500);
       return fetch(...args);
     }
   }),
@@ -55,7 +55,7 @@ const entriesApi = createApi({
       }),
       fetchEntriesByYearMonth: builder.query({
         providesTags: ['Entry'],
-        query: (year = dayjs().year(), month = dayjs().month()) => {
+        query: ({ year, month }) => {
           const firstDay = dayjs()
             .year(year)
             .month(month)

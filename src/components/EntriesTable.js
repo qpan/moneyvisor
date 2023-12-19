@@ -6,14 +6,14 @@ import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
 
-import { useFetchEntriesByYearMonthQuery } from '../store';
+import { useFetchEntriesByYearMonth } from "../hooks/use-fetch-entries-by-year-month";
 import EntriesTableRow from './EntiresTableRow';
 import { groupBy, map } from 'lodash';
-import { Divider, TableCell, TableRow } from '@mui/material';
+import { Divider, Stack, TableCell, TableRow } from '@mui/material';
 import dayjs from 'dayjs';
 
 function EntriesTable() {
-  const { data, error, isFetching } = useFetchEntriesByYearMonthQuery();
+  const { data, error, isFetching } = useFetchEntriesByYearMonth();
 
   const dataGroupByCreatedAt = groupBy(data, (entry) => (
     // Grab substring before 'T'
@@ -23,11 +23,19 @@ function EntriesTable() {
   let content;
   if (isFetching) {
     content = (
-      <Box sx={{ width: 300 }}>
-        <Skeleton animation="wave" />
-        <Skeleton animation="wave" />
-        <Skeleton animation="wave" />
-      </Box>
+      <Stack spacing={12}>
+        <Box>
+          <br />
+          <Skeleton height={20} animation="wave" />
+          <Skeleton height={40} animation="wave" />
+          <br />
+          <Skeleton height={20} animation="wave" />
+          <Skeleton height={40} animation="wave" />
+          <br />
+          <Skeleton height={20} animation="wave" />
+          <Skeleton height={40} animation="wave" />
+        </Box>
+      </Stack>
     );
   } else if (error) {
     content = <div>Error loading entries</div>

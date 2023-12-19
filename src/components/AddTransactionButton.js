@@ -16,7 +16,13 @@ function AddTransactionButton() {
 
   return (
     <>
-      <Button sx={{ borderRadius: 50 }} variant="contained" color="error"  onClick={handleClickOpen}>
+      <Button
+        className="addTransactionButton"
+        sx={{ borderRadius: 50 }}
+        variant="contained"
+        color="error"
+        onClick={handleClickOpen}
+      >
         <Add />
       </Button>
       <AddTransaction open={open} handleClose={handleClose} />

@@ -14,6 +14,7 @@ import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
 
 import { useFetchEntriesAggregationsQuery } from '../store';
+import { Divider, Stack } from '@mui/material';
 const { ENTRY } = require('../constants');
 
 
@@ -24,11 +25,14 @@ function EntriesAggregationsTable() {
 
   if (isFetching) {
     content = (
-      <Box sx={{ width: 300 }}>
-        <Skeleton animation="wave" />
-        <Skeleton animation="wave" />
-        <Skeleton animation="wave" />
-      </Box>
+      <Stack spacing={12}>
+        <Box>
+          <Divider />
+          <Skeleton height={20} animation="wave" />
+          <Skeleton height={40} animation="wave" />
+          <Divider />
+        </Box>
+      </Stack>
     );
   } else if (error) {
     content = <div>Error loading entries aggregations</div>
@@ -36,7 +40,14 @@ function EntriesAggregationsTable() {
     content = (
       <>
         <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 360 }} aria-label="simple table">
+          <Table sx={{
+            minWidth: 360,
+            '.MuiTableRow-root.MuiTableRow-hover': {
+              '&:hover': {
+                backgroundColor: '#fff',
+              }
+            }
+            }} aria-label="simple table">
             <TableBody>
               <TableRow
                 hover

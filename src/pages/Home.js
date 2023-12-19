@@ -3,6 +3,7 @@ import EntriesTable from '../components/EntriesTable';
 import EntriesAggregationsTable from '../components/EntriesAggregationsTable';
 import AddTransactionButton from '../components/AddTransactionButton';
 import { Box } from '@mui/material';
+import DatePaginator from '../components/DatePaginator';
 
 function Home() {
   return (
@@ -10,7 +11,7 @@ function Home() {
       align="center"
       sx={{
         height: 'calc(100% - 57px)',
-        'button': {
+        'button.addTransactionButton': {
           borderRadius: 50,
           position: 'absolute',
           bottom: '12px',
@@ -18,10 +19,11 @@ function Home() {
         }
       }}
     >
+      <DatePaginator />
       <EntriesAggregationsTable />
       <Box
         sx={{
-          height: 'calc(100% - 52px)',
+          height: 'calc(100% - 87px)',
           overflow: 'auto',
         }}
       >
