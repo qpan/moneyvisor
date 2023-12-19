@@ -125,7 +125,7 @@ function TransactionModal({
                 error={!!errors.typeId}
                 defaultValue={defaultValues.typeId}
                 onChange={(event) => {
-                  resetField("categoryId");
+                  resetField("categoryId", { defaultValue: '' });
                   onChange(event);
                 }}
                 {...field}
