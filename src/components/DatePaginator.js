@@ -8,13 +8,38 @@ import { updateDate } from "../store"
 import { useFetchEntriesByYearMonth } from "../hooks/use-fetch-entries-by-year-month";
 import { ArrowLeftIcon, ArrowRightIcon } from "@mui/x-date-pickers";
 
-function DatePaginator() {
+function DatePaginator({ views = ['yearMonth'], step = 'month' }) {
   const dispatch = useDispatch();
-  const { date, year, month } = useFetchEntriesByYearMonth();
+  const { date, ...rest } = useFetchEntriesByYearMonth();
 
-  const handleClick = (direction = month) => {
-    dispatch(updateDate(date.month(month + direction).format()));
+  const handleClick = (direction = 0) => {
+    const stepByFn = date[step].bind(date);
+    const byValue = rest[step];
+    dispatch(updateDate(stepByFn(byValue + direction).format()));
   }
+
+const viewMode = {
+  day: {
+    value: ['day'],
+    component: <>{rest.day}</>,
+  },
+  month: {
+    value: ['month'],
+    component: <>{monthsNameArray[rest.month]}</>,
+  },
+  year: {
+    value: ['year'],
+    component: <>{rest.year}</>,
+  },
+  yearMonth: {
+    value: ['year', 'month'],
+    component: <>{monthsNameArray[rest.month]} {rest.year}</>,
+  },
+  yearMonthDay: {
+    value: ['year', 'month', 'day'],
+    component: <>{monthsNameArray[rest.month]} {rest.day}, {rest.year}</>,
+  }
+}
 
   return (
     <>
@@ -24,7 +49,7 @@ function DatePaginator() {
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
-        bgcolor: "#fff",
+        backgroundColor: "#fff",
       }}
     >
       <Button
@@ -48,7 +73,7 @@ function DatePaginator() {
       >
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DatePicker
-            views={['month', 'year']}
+            views={viewMode[views].value}
             onChange={(value) => dispatch(updateDate(value.format()))}
             sx={{
               position: 'relative',
@@ -86,7 +111,8 @@ function DatePaginator() {
                     <div
                       className={props.className}
                     >
-                      {monthsNameArray[month]} {year}
+                      {/* {monthsNameArray[rest.month]} {rest.year} */}
+                      {viewMode[views].component}
                     </div>
                   );
                 },

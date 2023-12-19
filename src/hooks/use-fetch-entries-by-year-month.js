@@ -7,6 +7,7 @@ export function useFetchEntriesByYearMonth() {
     return state.date;
   });
   const date = dayjs(data);
+  const day = date.day();
   const year = date.year();
   const month = date.month();
 
@@ -17,5 +18,5 @@ export function useFetchEntriesByYearMonth() {
     }
   );
 
-return { date, year, month, data: entries, error, isFetching  };
+return { date, year, month, day, data: entries, error, isFetching  };
 }
