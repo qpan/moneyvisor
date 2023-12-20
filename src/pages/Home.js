@@ -8,7 +8,6 @@ import DatePaginator from '../components/DatePaginator';
 function Home() {
   return (
     <Grid
-      align="center"
       sx={{
         height: 'calc(100% - 57px)',
         'button.addTransactionButton': {

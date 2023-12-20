@@ -35,6 +35,7 @@ export {
 export {
   useFetchEntriesQuery,
   useFetchEntriesByYearMonthQuery,
+  useFetchEntriesByYearQuery,
   useAddEntryMutation,
   useUpdateEntryMutation,
   useRemoveEntryMutation,

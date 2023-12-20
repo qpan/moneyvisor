@@ -17,7 +17,7 @@ const { ENTRY } = require('../constants');
 function EntriesTableRow({ row }) {
   const [open, setOpen] = useState(false);
 
-  const handleClickOpen = (entry) => {
+  const handleClickOpen = () => {
     setOpen(true);
   };
 
@@ -33,7 +33,7 @@ function EntriesTableRow({ row }) {
   return (
     <TableRow
       hover
-      onClick={() => handleClickOpen(row)}
+      onClick={() => handleClickOpen()}
       sx={{
         '&:last-child td, &:last-child th': { border: 0 },
         '&:hover': { cursor: 'pointer' }

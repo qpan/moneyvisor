@@ -73,6 +73,24 @@ const entriesApi = createApi({
           };
         }
       }),
+      fetchEntriesByYear: builder.query({
+        providesTags: ['Entry'],
+        query: ({ year }) => {
+          const firstDay = dayjs()
+            .year(year)
+            .startOf('year')
+            .format();
+          const lastDay = dayjs()
+            .year(year)
+            .endOf('year')
+            .format();
+
+          return {
+            url: `/entries?_expand=type&_expand=account&_expand=category&createdAt_gte=${firstDay}&createdAt_lte=${lastDay}&_sort=createdAt&_order=asc`,
+            method: 'GET',
+          };
+        }
+      }),
       fetchEntriesAggregations: builder.query({
         providesTags: ['Entry'],
         query: () => {
@@ -89,6 +107,7 @@ const entriesApi = createApi({
 export const {
   useFetchEntriesQuery,
   useFetchEntriesByYearMonthQuery,
+  useFetchEntriesByYearQuery,
   useAddEntryMutation,
   useUpdateEntryMutation,
   useRemoveEntryMutation,
