@@ -6,14 +6,16 @@ import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
 
+
 import { useFetchEntriesByYearMonth } from "../hooks/use-fetch-entries-by-year-month";
 import EntriesTableRow from './EntiresTableRow';
-import { groupBy, map } from 'lodash';
+import { groupBy, isEmpty, map } from 'lodash';
 import { Chip, Divider, Stack, TableCell, TableRow } from '@mui/material';
 import dayjs from 'dayjs';
 import { ENTRY } from '../constants';
 import currency from 'currency.js';
 import { daysNameArray } from '../utils';
+import NoDataPlaceholder from './NoDataPlaceholder';
 
 function EntriesTable() {
   const { data, error, isFetching } = useFetchEntriesByYearMonth();
@@ -68,6 +70,12 @@ function EntriesTable() {
     );
   } else if (error) {
     content = <div>Error loading entries</div>
+  } else if (isEmpty(data)) {
+    content = (
+      <Box sx={{ marginTop: '80px'}}>
+        <NoDataPlaceholder />
+      </Box>
+    )
   } else {
     content = (
       <>

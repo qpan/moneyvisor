@@ -12,7 +12,6 @@ import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { routeMaps } from './routes';
 import Home from './pages/Home';
 import Stats from './pages/Stats';
-import Accounts from './pages/Accounts';
 import NoPage from './pages/NoPage';
 import {
   Grid,
@@ -21,7 +20,7 @@ import {
   BottomNavigationAction,
   Divider
 } from '@mui/material';
-import { MenuBook, Insights, Work } from '@mui/icons-material';
+import { MenuBook, Insights } from '@mui/icons-material';
 
 function App() {
   const routeLists = values(routeMaps);
@@ -43,7 +42,6 @@ function App() {
           >
             <BottomNavigationAction label="Transactions" icon={<MenuBook />} />
             <BottomNavigationAction label="Stats" icon={<Insights />} />
-            <BottomNavigationAction label="Accounts" icon={<Work />} />
           </BottomNavigation>
         </Box>
       </Grid>
@@ -51,7 +49,6 @@ function App() {
       <Routes>
         <Route path={routeMaps.home} element={ <Home/> } />
         <Route path={routeMaps.stats} element={ <Stats/>} />
-        <Route path={routeMaps.accounts} element={ <Accounts/> } />
         <Route path="*" element={ <NoPage/> } />
       </Routes>
     </div>

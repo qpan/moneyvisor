@@ -2,13 +2,14 @@ import { Box, Grid, Tab, Tabs } from "@mui/material";
 import DatePaginator from "../components/DatePaginator";
 import TabPanel from "../components/TabPanel";
 import { useFetchEntriesByYearMonth } from "../hooks/use-fetch-entries-by-year-month";
-import { capitalize, map } from "lodash";
+import { capitalize, isEmpty, map } from "lodash";
 import { VictoryPie } from 'victory';
 import { victoryColorScaleArray } from "../utils";
 import { useState } from "react";
 import { ENTRY } from "../constants";
 import currency from "currency.js";
 import CategoriesTable from "../components/CategoriesTable";
+import NoDataPlaceholder from "../components/NoDataPlaceholder";
 const math = require('mathjs');
 
 function Stats() {
@@ -134,7 +135,7 @@ function Stats() {
             '.MuiTabs-indicator': {
               backgroundColor: value === 0 ? 'success.main': 'error.main',
             },
-            '.Mui-selected': {
+            '.MuiButtonBase-root.Mui-selected': {
               color: value === 0 ? 'success.main': 'error.main',
             }
           }}
@@ -160,10 +161,18 @@ function Stats() {
           justifyContent="center"
         >
           <Grid item xs={12} sm={6} md={6}>
-            <VictoryPie
-              colorScale={victoryColorScaleArray}
-              data={incomeCategoryPieData}
-            />
+            {isEmpty(incomeCategoryPieData) && (
+              <Box sx={{ marginTop: '60px'}}>
+                <NoDataPlaceholder />
+              </Box>
+            )}
+            {!isEmpty(incomeCategoryPieData) && (
+              <VictoryPie
+                animate={{ duration: 100 }}
+                colorScale={victoryColorScaleArray}
+                data={incomeCategoryPieData}
+              />
+            )}
           </Grid>
           <br />
           <Grid item xs={12} sm={6} md={6}>
@@ -180,11 +189,18 @@ function Stats() {
           justifyContent="center"
         >
           <Grid item xs={12} sm={6} md={6}>
-            <VictoryPie
-              animate={{ duration: 100 }}
-              colorScale={victoryColorScaleArray}
-              data={expenseCategoryPieData}
-            />
+            {isEmpty(expenseCategoryPieData) && (
+              <Box sx={{ marginTop: '60px'}}>
+                <NoDataPlaceholder />
+              </Box>
+            )}
+            {!isEmpty(expenseCategoryPieData) && (
+              <VictoryPie
+                animate={{ duration: 100 }}
+                colorScale={victoryColorScaleArray}
+                data={expenseCategoryPieData}
+              />
+            )}
           </Grid>
           <br />
           <Grid item xs={12} sm={6} md={6}>

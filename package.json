@@ -36,8 +36,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "backup:server": "json-server --watch --port 3001 --routes routes.json db.json",
-    "start:server": "nodemon server.js",
+    "start:server": "json-server --watch --delay 500 --port 3001 db.json",
     "start": "concurrently npm:start:*"
   },
   "eslintConfig": {

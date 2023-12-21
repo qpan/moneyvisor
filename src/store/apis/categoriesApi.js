@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import pause from '../utils';
 import { JSON_SERVER_URL } from '../../constants';
 
 const categoriesApi = createApi({
@@ -7,8 +6,6 @@ const categoriesApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: JSON_SERVER_URL,
     fetchFn: async (...args) => {
-      // DEV ONLY!!!
-      await pause(1000);
       return fetch(...args);
     }
   }),
