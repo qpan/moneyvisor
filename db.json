@@ -41,31 +41,31 @@
       "note": "food note"
     },
     {
+      "id": 4,
       "typeId": 2,
-      "amount": 123.321,
+      "amount": 15.5,
       "createdAt": "2023-12-20T16:06:09.000Z",
       "categoryId": 2,
       "accountId": 1,
-      "note": "test note",
-      "id": 4
+      "note": "test note"
     },
     {
+      "id": 5,
       "typeId": 2,
-      "amount": 1212,
+      "amount": 100,
       "createdAt": "2023-12-30T16:17:44.000Z",
-      "categoryId": 3,
+      "categoryId": 4,
       "accountId": 2,
-      "note": "1212",
-      "id": 5
+      "note": "1212"
     },
     {
+      "id": 6,
       "typeId": 2,
-      "amount": 230,
+      "amount": 50,
       "createdAt": "2023-12-18T04:22:38.000Z",
       "categoryId": 2,
       "accountId": 1,
-      "note": "new cloth",
-      "id": 6
+      "note": "new clothnew clothnew clothnew clothnew clothnew clothnew clothnew clothnew clothnew clothnew clothnew cloth"
     },
     {
       "typeId": 2,
@@ -90,9 +90,9 @@
       "typeId": 2,
       "amount": 10,
       "createdAt": "2023-12-18T04:29:04.000Z",
-      "categoryId": 3,
+      "categoryId": 5,
       "accountId": 1,
-      "note": "beef on rice"
+      "note": ""
     },
     {
       "id": 10,
@@ -104,22 +104,22 @@
       "note": "lamb on rice"
     },
     {
+      "id": 11,
       "typeId": 2,
       "amount": 10,
       "createdAt": "2023-12-18T04:29:04.000Z",
-      "categoryId": 3,
+      "categoryId": 12,
       "accountId": 1,
-      "note": "chicken on rice",
-      "id": 11
+      "note": ""
     },
     {
+      "id": 12,
       "typeId": 2,
       "amount": 10,
       "createdAt": "2023-12-18T04:29:04.000Z",
-      "categoryId": 3,
-      "accountId": 1,
-      "note": "chicken on rice",
-      "id": 12
+      "categoryId": 6,
+      "accountId": 3,
+      "note": ""
     },
     {
       "id": 13,
@@ -158,7 +158,7 @@
     {
       "id": 1,
       "typeId": 1,
-      "name": "salary",
+      "name": "Salary",
       "emoji": "1F4B0",
       "createdAt": "2023-12-30T16:06:09.000Z",
       "editable": false
@@ -166,7 +166,7 @@
     {
       "id": 2,
       "typeId": 2,
-      "name": "apparel",
+      "name": "Apparel",
       "emoji": "1F455",
       "createdAt": "2023-12-30T16:06:09.000Z",
       "editable": false
@@ -174,8 +174,126 @@
     {
       "id": 3,
       "typeId": 2,
-      "name": "food",
+      "name": "Food",
       "emoji": "1F372",
+      "createdAt": "2023-12-30T16:06:09.000Z",
+      "editable": false
+    },
+    {
+      "id": 4,
+      "typeId": 2,
+      "name": "Social",
+      "emoji": "1F306",
+      "createdAt": "2023-12-30T16:06:09.000Z",
+      "editable": false
+    },
+    {
+      "id": 5,
+      "typeId": 2,
+      "name": "Pet",
+      "emoji": "1F415",
+      "createdAt": "2023-12-30T16:06:09.000Z",
+      "editable": false
+    },
+    {
+      "id": 6,
+      "typeId": 2,
+      "name": "Transport",
+      "emoji": "1F696",
+      "createdAt": "2023-12-30T16:06:09.000Z",
+      "editable": false
+    },
+    {
+      "id": 7,
+      "typeId": 2,
+      "name": "Culture",
+      "emoji": "1F3AD",
+      "createdAt": "2023-12-30T16:06:09.000Z",
+      "editable": false
+    },
+    {
+      "id": 8,
+      "typeId": 2,
+      "name": "Bills",
+      "emoji": "1F4C4",
+      "createdAt": "2023-12-30T16:06:09.000Z",
+      "editable": false
+    },
+    {
+      "id": 9,
+      "typeId": 2,
+      "name": "Education",
+      "emoji": "1F4DA",
+      "createdAt": "2023-12-30T16:06:09.000Z",
+      "editable": false
+    },
+    {
+      "id": 10,
+      "typeId": 2,
+      "name": "Gift",
+      "emoji": "1F381",
+      "createdAt": "2023-12-30T16:06:09.000Z",
+      "editable": false
+    },
+    {
+      "id": 11,
+      "typeId": 2,
+      "name": "Household",
+      "emoji": "1F3E1",
+      "createdAt": "2023-12-30T16:06:09.000Z",
+      "editable": false
+    },
+    {
+      "id": 12,
+      "typeId": 2,
+      "name": "Ticket",
+      "emoji": "1F3AB",
+      "createdAt": "2023-12-30T16:06:09.000Z",
+      "editable": false
+    },
+    {
+      "id": 13,
+      "typeId": 2,
+      "name": "Beauty",
+      "emoji": "1F484",
+      "createdAt": "2023-12-30T16:06:09.000Z",
+      "editable": false
+    },
+    {
+      "id": 14,
+      "typeId": 2,
+      "name": "Vacation",
+      "emoji": "1F379",
+      "createdAt": "2023-12-30T16:06:09.000Z",
+      "editable": false
+    },
+    {
+      "id": 15,
+      "typeId": 2,
+      "name": "Other",
+      "createdAt": "2023-12-30T16:06:09.000Z",
+      "editable": false
+    },
+    {
+      "id": 16,
+      "typeId": 1,
+      "name": "Allowance",
+      "emoji": "1F4B8",
+      "createdAt": "2023-12-30T16:06:09.000Z",
+      "editable": false
+    },
+    {
+      "id": 17,
+      "typeId": 1,
+      "name": "Bonus",
+      "emoji": "1F3C6",
+      "createdAt": "2023-12-30T16:06:09.000Z",
+      "editable": false
+    },
+    {
+      "id": 18,
+      "typeId": 1,
+      "name": "Other",
       "createdAt": "2023-12-30T16:06:09.000Z",
       "editable": false
     }
@@ -205,14 +323,20 @@
   "accounts": [
     {
       "id": 1,
-      "name": "cash",
+      "name": "Cash",
       "emoji": "1F4B5",
       "editable": false
     },
     {
       "id": 2,
-      "name": "bank",
+      "name": "Bank",
       "emoji": "1F3E6",
+      "editable": false
+    },
+    {
+      "id": 3,
+      "name": "Card",
+      "emoji": "1F4B3",
       "editable": false
     }
   ]

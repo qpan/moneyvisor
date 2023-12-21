@@ -3,6 +3,7 @@ import currency from 'currency.js';
 import {
   toLower,
   startCase,
+  truncate,
 } from 'lodash';
 
 import Box from '@mui/material/Box';
@@ -35,6 +36,7 @@ function EntriesTableRow({ row }) {
       hover
       onClick={() => handleClickOpen()}
       sx={{
+        height: '52px',
         '&:last-child td, &:last-child th': { border: 0 },
         '&:hover': { cursor: 'pointer' }
       }}
@@ -43,8 +45,8 @@ function EntriesTableRow({ row }) {
         {row.category.emoji && <Emoji unicode={row.category.emoji} />}&nbsp;&nbsp;
         <span>{startCase(toLower(row.category.name))}</span>
       </TableCell>
-      <TableCell width={"33.33%"} align="left">
-        <div>{row.note}</div>
+      <TableCell sx={{ whiteSpace: 'nowrap' }} width={"33.33%"} align="left">
+        <div>{truncate(row.note, { length: 25 })}</div>
         <div>
           {row.account.emoji && <Emoji unicode={row.account.emoji} />}&nbsp;&nbsp;
           {startCase(toLower(row.account.name))}

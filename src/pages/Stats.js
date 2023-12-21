@@ -168,6 +168,7 @@ function Stats() {
             )}
             {!isEmpty(incomeCategoryPieData) && (
               <VictoryPie
+                width={800}
                 animate={{ duration: 100 }}
                 colorScale={victoryColorScaleArray}
                 data={incomeCategoryPieData}
@@ -196,6 +197,7 @@ function Stats() {
             )}
             {!isEmpty(expenseCategoryPieData) && (
               <VictoryPie
+                width={800}
                 animate={{ duration: 100 }}
                 colorScale={victoryColorScaleArray}
                 data={expenseCategoryPieData}

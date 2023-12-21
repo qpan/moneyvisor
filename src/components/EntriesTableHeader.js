@@ -33,7 +33,7 @@ function EntriesTableHeader({ data }) {
                 '&:hover': { cursor: 'pointer' }
               }}
             >
-              <TableCell width={"25%"} align="left">
+              <TableCell sx={{ whiteSpace: 'nowrap' }} width={"25%"} align="left">
                 <Box component="span" fontSize={16} sx={{ fontWeight: 'medium' }}>
                   <Box component="span" sx={{ position: 'relative', top: '2px' }}>
                     {date.format('DD')}&nbsp;
