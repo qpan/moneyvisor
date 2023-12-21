@@ -10,12 +10,10 @@ import Skeleton from '@mui/material/Skeleton';
 import { useFetchEntriesByYearMonth } from "../hooks/use-fetch-entries-by-year-month";
 import EntriesTableRow from './EntiresTableRow';
 import { groupBy, isEmpty, map } from 'lodash';
-import { Chip, Divider, Stack, TableCell, TableRow } from '@mui/material';
-import dayjs from 'dayjs';
+import { Divider, Stack } from '@mui/material';
 import { ENTRY } from '../constants';
-import currency from 'currency.js';
-import { daysNameArray } from '../utils';
 import NoDataPlaceholder from './NoDataPlaceholder';
+import EntriesTableHeader from './EntriesTableHeader';
 
 function EntriesTable() {
   const { data, error, isFetching } = useFetchEntriesByYearMonth();
@@ -80,44 +78,10 @@ function EntriesTable() {
     content = (
       <>
         {map(dataGroupByCreatedAtWithAggregates, (data) => {
-          const date = dayjs(data.date);
-
           return (
             <Box key={data.date}>
               <Divider />
-              <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 360 }} size="small" aria-label="simple dense table">
-                  <TableBody>
-                    <TableRow>
-                      <TableCell width={"25%"} align="left">
-                        <Box component="span" fontSize={16} sx={{ fontWeight: 'medium' }}>
-                          <Box component="span" sx={{ position: 'relative', top: '2px' }}>
-                            {date.format('DD')}&nbsp;
-                          </Box>
-                        </Box>
-                        <Chip
-                          label={daysNameArray[date.day()].substring(0, 3)}
-                          size="small"
-                          sx={{
-                            borderRadius: 2,
-                            color: 'white',
-                            backgroundColor: '#999',
-                          }}
-                        />
-                        </TableCell>
-                      <TableCell sx={{ color: 'success.main' }} width={"25%"} align="center">
-                        {currency(data.aggregations.income, { separator: ',', symbol: '$'}).format()}
-                        </TableCell>
-                      <TableCell sx={{ color: 'error.main' }} width={"25%"} align="right">
-                        {currency(data.aggregations.expense, { separator: ',', symbol: '$'}).format()}
-                      </TableCell>
-                      <TableCell width={"25%"} align="right">
-                        {currency(data.aggregations.total, { separator: ',', symbol: '$'}).format()}
-                      </TableCell>
-                    </TableRow>
-                  </TableBody>
-                </Table>
-              </TableContainer>
+              <EntriesTableHeader data={data} />
               <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 360 }} size="small" aria-label="simple dense table">
                   <TableBody>
