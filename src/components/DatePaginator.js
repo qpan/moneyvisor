@@ -57,6 +57,7 @@ const viewMode = {
         onClick={() => handleClick(-1)}
         sx={{
           position: 'absolute',
+          zIndex: 1,
           left: 0,
           color: 'rgba(0, 0, 0, 0.87)',
         }}
@@ -98,6 +99,7 @@ const viewMode = {
               },
               '.MuiSvgIcon-root': {
                 position: 'relative',
+                zIndex: 1,
                 width: '100%',
                 color: 'rgba(0, 0, 0, 0.87)',
               },

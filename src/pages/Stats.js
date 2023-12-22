@@ -162,7 +162,7 @@ function Stats() {
         >
           <Grid item xs={12} sm={6} md={6}>
             {isEmpty(incomeCategoryPieData) && (
-              <Box sx={{ marginTop: '60px'}}>
+              <Box sx={{ marginTop: '84px'}}>
                 <NoDataPlaceholder />
               </Box>
             )}
@@ -191,7 +191,7 @@ function Stats() {
         >
           <Grid item xs={12} sm={6} md={6}>
             {isEmpty(expenseCategoryPieData) && (
-              <Box sx={{ marginTop: '60px'}}>
+              <Box sx={{ marginTop: '84px'}}>
                 <NoDataPlaceholder />
               </Box>
             )}
