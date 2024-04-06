@@ -27,7 +27,7 @@ export const victoryColorScaleArray = [
   "#6495ED",
   "#FFA600",
   "#FFD700",
-  "00FFFF",
+  "#00FFFF",
   "#000080",
   "#ADFF2F",
   "#30D5C8",

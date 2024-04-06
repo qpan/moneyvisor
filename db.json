@@ -77,13 +77,13 @@
       "id": 7
     },
     {
+      "id": 8,
       "typeId": 2,
       "amount": 10,
       "createdAt": "2024-01-18T04:29:04.000Z",
       "categoryId": 3,
       "accountId": 1,
-      "note": "chicken on rice",
-      "id": 8
+      "note": "chicken on rice"
     },
     {
       "id": 9,
@@ -138,6 +138,24 @@
       "categoryId": 3,
       "accountId": 1,
       "note": "lamb on rice"
+    },
+    {
+      "typeId": 2,
+      "amount": 123,
+      "createdAt": "2024-01-18T05:00:00.000Z",
+      "categoryId": 4,
+      "accountId": 1,
+      "note": "test note",
+      "id": 15
+    },
+    {
+      "typeId": 2,
+      "amount": 1,
+      "createdAt": "2024-01-17T05:00:00.000Z",
+      "categoryId": 6,
+      "accountId": 1,
+      "note": "test note",
+      "id": 16
     }
   ],
   "repetitions": [

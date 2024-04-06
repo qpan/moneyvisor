@@ -47,9 +47,9 @@ function App() {
       </Grid>
       <Divider light />
       <Routes>
-        <Route path={routeMaps.home} element={ <Home/> } />
-        <Route path={routeMaps.stats} element={ <Stats/>} />
-        <Route path="*" element={ <NoPage/> } />
+        <Route path={routeMaps.home} element={<Home />} />
+        <Route path={routeMaps.stats} element={<Stats />} />
+        <Route path="*" element={<NoPage />} />
       </Routes>
     </div>
   );
